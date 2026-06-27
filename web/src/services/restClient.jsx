@@ -1,8 +1,8 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/persons';
+const personsEndpointUri = 'http://localhost:3001/api/persons';
 
 const getAll = () => {
-    return axios.get(baseUrl)
+    return axios.get(personsEndpointUri)
         .then(response => response)
         .catch(error => {
             console.log(`Error fetching persons: ${error}`);
@@ -11,7 +11,7 @@ const getAll = () => {
 };
 
 const create = (newPerson) => {
-    return axios.post(baseUrl, newPerson)
+    return axios.post(personsEndpointUri, newPerson)
         .then(response => response)
         .catch(error => {
             console.log(`Error creating person: ${error}`);
@@ -20,7 +20,7 @@ const create = (newPerson) => {
 };
 
 const update = (id, updatedPerson) => {
-    return axios.put(`${baseUrl}/${id}`, updatedPerson)
+    return axios.put(`${personsEndpointUri}/${id}`, updatedPerson)
         .then(response => response)
         .catch(error => {
             console.log(`Error updating person: ${error}`);
@@ -29,7 +29,7 @@ const update = (id, updatedPerson) => {
 };
 
 const remove = (id) => {
-    return axios.delete(`${baseUrl}/${id}`)
+    return axios.delete(`${personsEndpointUri}/${id}`)
         .then(response => response)
         .catch(error => {
             console.log(`Error deleting person: ${error}`);
@@ -38,7 +38,7 @@ const remove = (id) => {
 };
 
 const getById = (id) => {
-    return axios.get(`${baseUrl}/${id}`)
+    return axios.get(`${personsEndpointUri}/${id}`)
         .then(response => response)
         .catch(error => {
             console.log(`Error fetching person by id: ${error}`);
