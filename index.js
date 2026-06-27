@@ -53,7 +53,6 @@ app.get('/api/persons/:id', (request, response) => {
 app.delete('/api/persons/:id', (request, response) => {
     const id = parseInt(request.params.id);
     notes = notes.filter(note => note.id !== id);
-    console.log(notes);
     response.status(204).end();
 });
 
