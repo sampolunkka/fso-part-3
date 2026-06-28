@@ -7,6 +7,9 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "web dev": "vite web --port 8001",
+    "build": "vite build",
+    "build:ui": "rm -rf dist && cd web && npm run build && cp -r dist",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
@@ -20,6 +23,7 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.3",
     "vite": "^8.1.0"
   }
 }
